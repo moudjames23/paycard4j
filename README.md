@@ -22,7 +22,7 @@ Pour Maven, ajoutez cette dépendance dans votre fichier `pom.xml` :
 Pour Gradle :
 
 ```gradle
-implementation 'io.github.moudjames23:paycard4j:1.0.0'
+ implementation 'io.github.moudjames23.paycard4j:paycard4j:1.0.0'
 ```
 
 ## Documentation
