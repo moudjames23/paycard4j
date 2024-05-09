@@ -13,7 +13,7 @@ Pour Maven, ajoutez cette dépendance dans votre fichier `pom.xml` :
 
 ```xml
 <dependency>
-  <groupId>io.github.moudjames23</groupId>
+  <groupId>io.github.moudjames23.paycard4j</groupId>
   <artifactId>paycard4j</artifactId>
   <version>1.0.0</version>
 </dependency>
