@@ -3,6 +3,7 @@ package io.github.moudjames23.paycard4j.paycard;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.moudjames23.paycard4j.enums.HttpMethod;
+import io.github.moudjames23.paycard4j.enums.PaymentMethod;
 import io.github.moudjames23.paycard4j.exceptions.PaycardGlobalException;
 import io.github.moudjames23.paycard4j.models.requests.CreatePaymentRequest;
 import okhttp3.MediaType;
@@ -57,10 +58,18 @@ public class CreatePayment implements HttpRequest {
         {
             switch (createPaymentRequest.getPaymentMethod())
             {
-                case PAYCARD -> data.put("paycard-jump-to-paycard", "on");
-                case CREDIT_CARD -> data.put("paycard-jump-to-cc", "on");
-                case ORANGE_MONEY -> data.put("paycard-jump-to-om", "on");
-                case MOMO -> data.put("paycard-jump-to-momo", "on");
+                case PAYCARD:
+                    data.put("paycard-jump-to-paycard", "on");
+                    break;
+                case CREDIT_CARD:
+                    data.put("paycard-jump-to-cc", "on");
+                    break;
+                case ORANGE_MONEY:
+                    data.put("paycard-jump-to-om", "on");
+                    break;
+                case MOMO:
+                    data.put("paycard-jump-to-momo", "on");
+                    break;
             }
         }
 
