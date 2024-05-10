@@ -24,3 +24,14 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
+    - name: Publish to Maven Central
+      env:
+        GPG_SECRET_KEYS: ${{ secrets.GPG_SECRET_KEYS }}
+        GPG_OWNERTRUST: ${{ secrets.GPG_OWNERTRUST }}
+        OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+        OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+      run: |
+        echo "$GPG_SECRET_KEYS" | gpg --import
+        echo "$GPG_OWNERTRUST" | gpg --import-ownertrust
+        mvn -B deploy --file pom.xml -DskipTests -P release -Dgpg.passphrase=${{ secrets.GPG_PASSPHRASE }}
+
